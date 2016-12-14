@@ -1,0 +1,9 @@
+<% if @products.any? %>
+	<% @products.each do |prod| %>
+		<p><%= prod.name %></p>
+		<p><%= image_tag prod.image.url(:thumb) %></p>
+		<p>£<%= prod.price %> | <%= link_to 'buy', '#' %></p>
+	<% end %>
+<% else %>
+	<p>There are no products to show</p>
+<% end %>

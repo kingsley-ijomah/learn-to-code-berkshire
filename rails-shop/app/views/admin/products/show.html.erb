@@ -1,0 +1,7 @@
+<%= render 'admin/shared/nav' %>
+
+<h3>Product</h3>
+
+<p>product: <%= @product.name %></p>
+<p>price: £<%= @product.price %></p>
+<p><%= image_tag @product.image.url(:thumb) %></p>

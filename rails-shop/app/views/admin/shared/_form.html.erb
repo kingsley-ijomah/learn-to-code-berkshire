@@ -1,0 +1,6 @@
+<%= form_for [:admin, @product],  html: { multipart: true } do |f| %>
+	<p><%= f.text_field :name, placeholder: 'Product Name' %></p>
+	<p><%= f.text_field :price, placeholder: 'Product Price' %></p>
+	<p><%= f.file_field :image %></p>
+	<p><%= f.submit 'Save Product' %></p>
+<% end %>

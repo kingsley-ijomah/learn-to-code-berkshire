@@ -1,0 +1,25 @@
+<%= render 'admin/shared/nav' %>
+
+<h3>Products</h3>
+
+<% if @products.any? %>
+	<table>
+		<tr>
+			<th>Name</th>
+			<th>Price</th>
+			<th colspan="2">Actions</th>
+		</tr>
+
+		<% @products.each do |prod| %>
+			<tr>
+				<td><%= prod.name %></td>
+				<td>£<%= prod.price %></td>
+				<td><%= link_to 'show', admin_product_path(prod) %></td>
+				<td><%= link_to 'edit', edit_admin_product_path(prod) %></td>
+				<td><%= link_to 'delete', admin_product_path(prod), method: :delete %></td>
+			</tr>
+		<% end %>
+	</table>
+<% else %>
+	<p>There are no products to show</p>
+<% end %>
