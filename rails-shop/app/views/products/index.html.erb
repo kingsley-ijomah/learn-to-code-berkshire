@@ -1,17 +1,16 @@
 <% if @products.any? %>
-	<div class="grid">
-		<% @products.each do |prod| %>
-			<div>
-				<article class="product">
-					<div class="product__image">
-						<%= image_tag prod.image.url(:medium) %>
-					</div>
-					<p class="product__copy"><%= prod.name %> - &pound;<%= prod.price %></p>
-					<%= link_to 'Add to Cart', '#', class: "button" %>
-				</article>
-			</div>
-		<% end %>
-	</div>
+  <div class="grid">
+    <% @products.each do |prod| %>
+      <%= link_to prod do %>
+        <article class="product">
+          <div class="product__image">
+            <%= image_tag prod.image.url(:medium) %>
+          </div>
+          <p class="product__copy"><%= prod.name %> - &pound;<%= prod.price %></p>
+        </article>
+      <% end %>
+    <% end %>
+  </div>
 <% else %>
-	<p>There are no products to show</p>
+  <p>There are no products to show</p>
 <% end %>
