@@ -1,0 +1,20 @@
+### Bootup Server
+==============================
+
+# create our project
+-------------------
+rails new perre -d mysql -T
+
+# stop spring
+-------------
+spring stop
+
+# setup database ( done 1 time )
+--------------------------------
+rails db:setup
+
+# create schema file
+rails db:migrate
+
+# start server
+rails s

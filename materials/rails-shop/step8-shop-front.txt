@@ -1,0 +1,36 @@
+### building shop front end
+===========================
+
+# setup route
+-------------
+
+Rails.application.routes.draw do
+	...
+  root to: 'products#index'
+  resources :products, only: [:index]
+  ...
+end
+
+# create front end controller
+# controllers/products_controller.rb
+------------------------------------
+
+class ProductsController < ApplicationController
+	def index
+		@products = Product.all
+	end
+end
+
+# create views for front end controller
+# products/index.html.erb
+-------------------------
+
+<% if @products.any? %>
+	<% @products.each do |prod| %>
+		<p><%= prod.name %></p>
+		<p><%= image_tag prod.image.url(:thumb) %></p>
+		<p>£<%= prod.price %> | <%= link_to 'buy', '#' %></p>
+	<% end %>
+<% else %>
+	<p>There are no products to show</p>
+<% end %>
