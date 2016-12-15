@@ -1,5 +1,6 @@
-<h3>Product</h3>
-
-<p>product: <%= @product.name %></p>
-<p>price: £<%= @product.price %></p>
-<p><%= image_tag @product.image.url(:thumb) %></p>
+<section class="section">
+  <h1 class="section__title">Product</h1>
+  <p>product: <%= @product.name %></p>
+  <p>price: £<%= @product.price %></p>
+  <p><%= image_tag @product.image.url(:thumb) %></p>
+</section>
