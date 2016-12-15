@@ -9,6 +9,25 @@
   </head>
 
   <body>
-    <%= yield %>
+    <header class="header">
+      <div class="wrapper">
+        <%= link_to 'J.Parré', products_path, class: "header__logo" %>
+
+        <ul class="nav">
+          <li class="nav__item">
+            <%= link_to 'Products', admin_products_path, class: "nav__link" %>
+          </li>
+          <li class="nav__item">
+            <%= link_to "Cart(0)", "/cart", class: "nav__link" %>
+          </li>
+        </ul>
+      </div>
+    </header>
+
+    <div class="wrapper">
+      <div class="container">
+        <%= yield %>
+      </div>
+    </div>
   </body>
 </html>
