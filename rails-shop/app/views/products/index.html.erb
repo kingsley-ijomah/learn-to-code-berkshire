@@ -1,5 +1,5 @@
 <% if @products.any? %>
-  <div class="grid">
+  <div class="grid grid--4-columns">
     <% @products.each do |prod| %>
       <%= link_to prod do %>
         <article class="product">

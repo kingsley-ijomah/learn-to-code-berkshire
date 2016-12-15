@@ -1,1 +1,15 @@
-<h3>show</h3>
+<section class="detail grid grid--2-columns">
+  <div>
+    <%= image_tag @product.image.url(:medium), class: "detail__image" %>
+  </div>
+
+  <div>
+    <header class="detail__header">
+      <h1 class="detail__title"><%= @product.name %></h1>
+    </header>
+
+    <p class="detail__copy">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem aut placeat doloremque ab animi nihil adipisci beatae? Error dolor nostrum, odio ad, ea eligendi asperiores quis voluptatibus incidunt culpa. Sit.</p>
+    <p class="detail__copy">&pound;<%= @product.price %></p>
+    <%= link_to "Add To Cart", "", class: "button" %>
+  </div>
+</section>

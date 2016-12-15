@@ -6,13 +6,21 @@
     > *
         flex: none
         margin: 30px 30px 0px 0px
-        width: calc(25% - 30px)
         text-decoration: none
 
+    &--4-columns > *
+        width: calc(25% - 30px)
+
+    &--2-columns > *
+        width: calc(50% - 30px)
+
     @media all and (max-width: 767px)
-        > *
+        &--4-columns > *
             width: calc(50% - 30px)
 
+        &--2-columns > *
+            width: calc(100% - 30px)
+
     @media all and (max-width: 567px)
-        > *
+        &--4-columns > *
             width: calc(100% - 30px)

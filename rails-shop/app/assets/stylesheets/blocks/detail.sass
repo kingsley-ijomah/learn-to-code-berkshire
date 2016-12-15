@@ -1,0 +1,44 @@
+.detail
+    text-align: center
+    
+    &__header
+        padding: 40px 0px 20px
+
+        &:after
+            content: ""
+            display: block
+            margin: 0 auto
+            height: 2px
+            width: 80px
+            background: #172842
+
+    &__title
+        margin: 0
+        font-family: 'Playfair Display', serif
+        font-size: 32px
+        padding-bottom: 20px
+        color: #35536b
+        font-weight: 400
+
+    &__copy
+        margin: 0 auto
+        font-family: 'Open Sans', sans-serif
+        font-size: 12px
+        color: #000
+        padding-bottom: 20px
+        max-width: 320px
+
+    &__image
+        width: 100%
+        display: block
+
+    @media all and (max-width: 767px)
+        padding-bottom: 30px
+
+        &__header
+            padding-top: 0px
+
+        &__image
+            width: 300px
+            max-width: 100%
+            margin: 0 auto

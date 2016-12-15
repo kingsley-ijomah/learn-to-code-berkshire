@@ -15,7 +15,7 @@
 
         <ul class="nav">
           <li class="nav__item">
-            <%= link_to 'Products', admin_products_path, class: "nav__link" %>
+            <%= link_to 'Products', products_path, class: "nav__link" %>
           </li>
           <li class="nav__item">
             <%= link_to "Cart(0)", "/cart", class: "nav__link" %>
@@ -28,6 +28,11 @@
       <div class="container">
         <%= yield %>
       </div>
+
+      <footer class="footer">
+        <p class="footer__copy">2016 &copy;J.Parré Apparel Co.</p>
+        <%= link_to 'Admin Area', admin_products_path, class: "footer__link" %>
+      </footer>
     </div>
   </body>
 </html>
