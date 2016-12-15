@@ -1,0 +1,70 @@
+### Setting up the ground work
+==============================
+
+# create admins products controller routing 
+# config/routes.rb
+------------------
+Rails.application.routes.draw do
+  namespace :admin do
+  	root to: 'products#index'
+  	resources :products
+  end
+end
+
+# create admin products controller with blank actions 
+# admin/products_controller.rb
+------------------------------
+class Admin::ProductsController < ApplicationController
+	def index
+	end
+
+	def show
+	end
+
+	def new
+	end
+
+	def create
+	end
+
+	def edit
+	end
+
+	def update
+	end
+
+	def destroy
+	end
+end
+
+# create views
+--------------
+# views/admin/products/index.html.erb
+# views/admin/products/show.html.erb
+# views/admin/products/new.html.erb
+# views/admin/products/edit.html.erb
+
+# create _nav.html.erb partial
+------------------------------
+<%= render 'admin/shared/nav' %>
+
+# create _nav.html.erb file
+---------------------------
+<%= link_to 'products', admin_products_path %> | 
+<%= link_to 'new product', new_admin_product_path %>
+
+# create model
+# models/product.rb
+-------------------
+class Product < ApplicationRecord
+end
+
+# create products table migration
+-----------------------------------------------------
+rails g migration CreateProducts name:string price:decimal{'10,2'}
+
+# run migration 
+---------------
+rails db:migrate
+
+# visit admin root /admin should show us blank index page

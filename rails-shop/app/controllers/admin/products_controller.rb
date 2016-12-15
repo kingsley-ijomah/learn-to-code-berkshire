@@ -27,7 +27,7 @@ class Admin::ProductsController < ApplicationController
 	def update
 		@product = Product.find(params[:id])
 		if @product.update(strong_params)
-			redirect_to @product
+			redirect_to [:admin, @product]
 		else
 			render 'edit'
 		end

@@ -1,0 +1,63 @@
+### Uploading image
+===================
+
+# get Gem
+-------------
+https://rubygems.org/gems/paperclip/versions/5.1.0
+
+# add into gemfile
+------------------
+gem 'paperclip', '~> 5.1'
+
+# install gem
+-------------
+bundle install
+
+# visit documentaion for paperclip
+----------------------------------
+http://www.rubydoc.info/gems/paperclip/5.1.0
+
+# update model file
+-------------------
+class Product < ApplicationRecord
+	 has_attached_file :image, styles: { medium: "300x300>", thumb: "100x100>" }
+	 validates_attachment_content_type :image, content_type: /\Aimage\/.*\z/
+end
+
+# allow :image attribute in strong params
+-----------------------------------------
+def strong_params
+	params.require(:product).permit(:name, :price, :image)
+end
+
+# generate migration
+--------------------
+rails generate paperclip product image
+
+# run migration
+rails db:migrate
+
+# might need to restart server
+------------------------------
+ctr c
+rails s
+
+
+# update partial _form.html to include image field
+--------------------------------------------------
+<%= form_for [:admin, @product] do |f| %>
+	...
+	<p><%= f.file_field :image %></p>
+	...
+<% end %>
+
+
+# update form encode type
+-------------------------
+<%= form_for [:admin, @product],  html: { multipart: true } do |f| %>
+
+
+# add image thumb to show.html.erb
+----------------------------------
+...
+<p><%= image_tag @product.image.url(:thumb) %></p>

@@ -1,0 +1,20 @@
+### show a product
+==================
+
+# find a record based on supplied param id
+------------------------------------------
+class Admin::ProductsController < ApplicationController
+	...
+	def show
+		@product = Product.find(params[:id])
+	end
+	...
+end
+
+# adding view content
+---------------------
+<h3>Product</h3>
+
+<p>product: <%= @product.name %></p>
+<p>price: £<%= @product.price %></p>
+
