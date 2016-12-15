@@ -7,7 +7,7 @@
 Rails.application.routes.draw do
   ...
   root to: 'products#index'
-  resources :products, only: [:index]
+  resources :products, only: [:index, :show]
   ...
 end
 
@@ -18,6 +18,10 @@ end
 class ProductsController < ApplicationController
   def index
     @products = Product.all
+  end
+
+  def show
+    @product = Product.find(params[:id])
   end
 end
 
@@ -34,3 +38,7 @@ end
 <% else %>
   <p>There are no products to show</p>
 <% end %>
+
+# create show page
+------------------
+# products/show.html.erb
