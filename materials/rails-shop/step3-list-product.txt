@@ -4,43 +4,43 @@
 # read all products from model
 ------------------------------
 class Admin::ProductsController < ApplicationController
-	...
-	def index
-		@products = Product.all
-	end
-	...
+  ...
+  def index
+    @products = Product.all
+  end
+  ...
 end
 
 # create a table structure for our data
 ---------------------------------------
 <h3>Products</h3>
 <table>
-	<tr>
-		<th>Name</th>
-		<th>Price</th>
-		<th colspan="3">Actions</th>
-	</tr>
-		<tr>
-			<td>blue shirt</td>
-			<td>£30.00</td>
-			<td>show</td>
-			<td>edit</td>
-			<td>delete</td>
-		</tr>
+  <tr>
+    <th>Name</th>
+    <th>Price</th>
+    <th colspan="3">Actions</th>
+  </tr>
+    <tr>
+      <td>blue shirt</td>
+      <td>£30.00</td>
+      <td>show</td>
+      <td>edit</td>
+      <td>delete</td>
+    </tr>
 </table>
 
 # read info from database onto table
 ------------------------------------
 <h3>Products</h3>
 <table>
-	...
-	<% @products.each do |prod| %>
-		<tr>
-			<td><%= prod.name %></td>
-			<td><%= prod.price %></td>
-			<td><%= link_to 'show', admin_product_path(prod) %></td>
-			<td><%= link_to 'edit', edit_admin_product_path(prod) %></td>
-			<td><%= link_to 'delete', admin_product_path(prod), method: :delete %></td>
-		</tr>
-	<% end %>
+  ...
+  <% @products.each do |prod| %>
+    <tr>
+      <td><%= prod.name %></td>
+      <td><%= prod.price %></td>
+      <td><%= link_to 'show', admin_product_path(prod) %></td>
+      <td><%= link_to 'edit', edit_admin_product_path(prod) %></td>
+      <td><%= link_to 'delete', admin_product_path(prod), method: :delete %></td>
+    </tr>
+  <% end %>
 </table>

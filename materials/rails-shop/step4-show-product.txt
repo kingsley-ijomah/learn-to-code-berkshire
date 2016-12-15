@@ -4,11 +4,11 @@
 # find a record based on supplied param id
 ------------------------------------------
 class Admin::ProductsController < ApplicationController
-	...
-	def show
-		@product = Product.find(params[:id])
-	end
-	...
+  ...
+  def show
+    @product = Product.find(params[:id])
+  end
+  ...
 end
 
 # adding view content

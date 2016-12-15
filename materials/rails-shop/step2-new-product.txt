@@ -6,29 +6,29 @@
 ------------------------------------------
 class Admin::ProductsController < ApplicationController
   ...
-	def new
-		@product = Product.new
-	end
-	...
+  def new
+    @product = Product.new
+  end
+  ...
 end
 
 # create new form in new.html.erb
 ---------------------------------
 <h3>New Product</h3>
 <%= form_for [:admin, @product] do |f| %>
-	<p><%= f.text_field :name, placeholder: 'Product Name' %></p>
-	<p><%= f.text_field :price, placeholder: 'Product Price' %></p>
-	<p><%= f.submit 'Save Product' %></p>
+  <p><%= f.text_field :name, placeholder: 'Product Name' %></p>
+  <p><%= f.text_field :price, placeholder: 'Product Price' %></p>
+  <p><%= f.submit 'Save Product' %></p>
 <% end %>
 
 # catch data being sent to create
 ---------------------------------
 class Admin::ProductsController < ApplicationController
   ...
-	def create
-		byebug
-	end
-	...
+  def create
+    byebug
+  end
+  ...
 end
 
 # add strong params for additional security
@@ -37,23 +37,23 @@ class Admin::ProductsController < ApplicationController
   ...
   private
   
-	def strong_params
-		params.require(:product).permit(:name, :price)
-	end
-	...
+  def strong_params
+    params.require(:product).permit(:name, :price)
+  end
+  ...
 end
 
 # lets code create method to persist data into our database
 -----------------------------------------------------------
 class Admin::ProductsController < ApplicationController
   ...
-	def create
-		@product = Product.new(strong_params)
-		if @product.save
-			redirect_to [:admin, @product]
-		else
-			render 'new'
-		end
-	end
-	...
+  def create
+    @product = Product.new(strong_params)
+    if @product.save
+      redirect_to [:admin, @product]
+    else
+      render 'new'
+    end
+  end
+  ...
 end

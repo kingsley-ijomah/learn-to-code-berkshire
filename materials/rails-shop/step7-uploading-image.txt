@@ -20,14 +20,14 @@ http://www.rubydoc.info/gems/paperclip/5.1.0
 # update model file
 -------------------
 class Product < ApplicationRecord
-	 has_attached_file :image, styles: { medium: "300x300>", thumb: "100x100>" }
-	 validates_attachment_content_type :image, content_type: /\Aimage\/.*\z/
+   has_attached_file :image, styles: { medium: "300x300>", thumb: "100x100>" }
+   validates_attachment_content_type :image, content_type: /\Aimage\/.*\z/
 end
 
 # allow :image attribute in strong params
 -----------------------------------------
 def strong_params
-	params.require(:product).permit(:name, :price, :image)
+  params.require(:product).permit(:name, :price, :image)
 end
 
 # generate migration
@@ -46,9 +46,9 @@ rails s
 # update partial _form.html to include image field
 --------------------------------------------------
 <%= form_for [:admin, @product] do |f| %>
-	...
-	<p><%= f.file_field :image %></p>
-	...
+  ...
+  <p><%= f.file_field :image %></p>
+  ...
 <% end %>
 
 

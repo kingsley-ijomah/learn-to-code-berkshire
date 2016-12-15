@@ -1,8 +1,8 @@
 ### Bootup Server
-==============================
+=================
 
 # create our project
--------------------
+---------------------
 rails new perre -d mysql -T
 
 # stop spring
