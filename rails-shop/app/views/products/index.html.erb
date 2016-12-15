@@ -1,9 +1,17 @@
 <% if @products.any? %>
-	<% @products.each do |prod| %>
-		<p><%= prod.name %></p>
-		<p><%= image_tag prod.image.url(:thumb) %></p>
-		<p>£<%= prod.price %> | <%= link_to 'buy', '#' %></p>
-	<% end %>
+	<div class="grid">
+		<% @products.each do |prod| %>
+			<div>
+				<article class="product">
+					<div class="product__image">
+						<%= image_tag prod.image.url(:medium) %>
+					</div>
+					<p class="product__copy"><%= prod.name %> - &pound;<%= prod.price %></p>
+					<%= link_to 'Add to Cart', '#', class: "button" %>
+				</article>
+			</div>
+		<% end %>
+	</div>
 <% else %>
 	<p>There are no products to show</p>
 <% end %>
